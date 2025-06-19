@@ -158,8 +158,8 @@ class Custom(Dataset):
             total_data_size += coord_data.nbytes + embed_data.nbytes
             self.index.extend(list(zip([i] * size, range(size))))
             # consistency check
-            assert coord_data.shape[1] == embed_data.shape[0], (
-                f"Number of atoms in coordinate file {i} ({coord_data.shape[1]}) "
+            assert coord_data.shape[0] == embed_data.shape[0], (
+                f"Number of atoms in coordinate file {i} ({coord_data.shape[0]}) "
                 f"does not match number of atoms in embed file {i} ({embed_data.shape[0]})."
             )
             if self.has_energies:
